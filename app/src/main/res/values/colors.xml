@@ -5,6 +5,9 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="selected">#34C759</color>
+    <color name="thin_blue">#0074FF</color>
+    <color name="panel_background">#E9E9EB</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

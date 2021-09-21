@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">ProgressiveOverload</string>
+
+    <!-- Main 화면 -->
+    <string name="no_exercise1">현재 등록된 운동 리스트가 없습니다.</string>
+    <string name="no_exercise2">새로운 운동 리스트를 설정해주세요</string>
+    <string name="today_exercise">오늘의 운동</string>
+    <string name="log">운동 일지</string>
+    <string name="not_available">준비중인 기능입니다.</string>
+    <!-- BACK -->
+    <string name="back">BACK</string>
+    <string name="back_lt_p_d">랫풀다운</string>
+    <string name="back_p_up">풀 업</string>
+    <string name="back_d_lft">데드리프트</string>
+    <string name="back_st_rw">BACK</string>
+    <!-- CHEST -->
+    <string name="chest">CHEST</string>
+    <string name="chest_bch_prs">벤치 프레스</string>
+    <string name="chest_icl_bch">인클라인 벤치 프레스</string>
+    <string name="chest_crs_ovr">크로스 오버</string>
+    <string name="chest_dps">딥스</string>
+    <!-- SHOULDER -->
+    <string name="shoulder">SHOULDER</string>
+    <string name="shoulder_ltr_sd_rs">레터럴 사이드 레이즈</string>
+    <string name="shoulder_sdr_prs">숄더 프레스</string>
+    <string name="shoulder_vnt_ovr_ltr_rs">벤트오버 레터럴 레이즈</string>
+    <string name="shoulder_fc_fl">페이스 풀</string>
+    <!-- ARM -->
+    <string name="arm">ARM</string>
+    <string name="arm_crl">암 컬</string>
+    <string name="arm_tri_ext">트라이 셉스 익스텐션</string>
+    <string name="arm_kb_dmb">킥백 덤벨</string>
+    <!-- LEG -->
+    <string name="leg">LEG</string>
+    <string name="leg_sqt">스쿼트</string>
+    <string name="leg_ext">레그익스텐션</string>
+    <string name="leg_curl">레그컬</string>
 </resources>
