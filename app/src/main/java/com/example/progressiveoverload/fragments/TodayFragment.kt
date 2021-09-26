@@ -31,7 +31,6 @@ class TodayFragment(private val mainContext: Context) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.layout_toady_exercise, container, false)
-
         eViewModelFactory = ExerciseViewModelFactory()
         eViewModel = ViewModelProvider(this).get(ExerciseViewModel::class.java)
 
@@ -41,11 +40,12 @@ class TodayFragment(private val mainContext: Context) : Fragment() {
     override fun onResume() {
         super.onResume()
         binding.apply {
+
             if(eViewModel._exerciseList.value!!.isEmpty()) {
                 llToday.visibility = View.VISIBLE
                 rvExerciseList.visibility = View.GONE
                 ivAdd.setOnClickListener {
-                    startActivity(Intent(context, ExerciseSelectActivity::class.java))
+                    startActivity(Intent(activity, ExerciseSelectActivity::class.java))
                 }
             } else {
                 llToday.visibility = View.GONE
