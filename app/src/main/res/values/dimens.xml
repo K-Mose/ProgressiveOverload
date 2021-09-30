@@ -11,14 +11,19 @@
     <dimen name="select_text_margin">20sp</dimen>
     <dimen name="divider_height">0.5sp</dimen>
     <dimen name="divider_margin_left">50sp</dimen>
-    <dimen name="panel_text_margin">15dp</dimen>
-    <dimen name="panel_margin">5dp</dimen>
+    <dimen name="panel_size">200dp</dimen>
+    <dimen name="panel_text_margin">25dp</dimen>
+    <dimen name="panel_margin">10dp</dimen>
     <dimen name="panel_radius">30dp</dimen>
     <dimen name="panel_padding">25dp</dimen>
     <dimen name="panel_text_size">25dp</dimen>
+    <dimen name="panel_icon_size">30dp</dimen>
     <dimen name="selected_item">80dp</dimen>
     <dimen name="selected_item_text_size">18dp</dimen>
     <dimen name="selected_item_text_padding">10dp</dimen>
     <dimen name="selected_item_text_">60dp</dimen>
     <dimen name="selected_remove_item">18dp</dimen>
+
+    <!-- 운동선택 디테일 -->
+
 </resources>

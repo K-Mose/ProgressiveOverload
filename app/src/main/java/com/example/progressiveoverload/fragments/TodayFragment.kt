@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -40,12 +41,17 @@ class TodayFragment(private val mainContext: Context) : Fragment() {
     override fun onResume() {
         super.onResume()
         binding.apply {
-
+            Log.e("List:", "${eViewModel._exerciseList.value!!.size}")
+            Log.e("List", "${eViewModel._exerciseList}")
+            var eList = eViewModel._exerciseList.value!!
             if(eViewModel._exerciseList.value!!.isEmpty()) {
                 llToday.visibility = View.VISIBLE
                 rvExerciseList.visibility = View.GONE
                 ivAdd.setOnClickListener {
-                    startActivity(Intent(activity, ExerciseSelectActivity::class.java))
+                    startActivity(
+                        Intent(activity, ExerciseSelectActivity::class.java)
+                            .putExtra("list", bundleOf("list" to eList))
+                    )
                 }
             } else {
                 llToday.visibility = View.GONE
