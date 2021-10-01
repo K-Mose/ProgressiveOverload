@@ -26,14 +26,19 @@ class ExerciseSelectDetailActivity : AppCompatActivity() {
         exerciseList = (intent.getBundleExtra("list"))!!.get("list") as MutableList<Exercise>
         setActionbar()
         binding.rvExerciseDetailList.apply {
-            adapter = ExerciseDetailAdapter(this@ExerciseSelectDetailActivity, Constants.excMap[type]!!)
+            adapter = ExerciseDetailAdapter(this@ExerciseSelectDetailActivity, Constants.excMap[type]!!, exerciseList)
                 .apply {
                     setOnClickListener(object: ExerciseDetailAdapter.OnClickListener{
-                        override fun itemClick(name: String, isSelected: Boolean) {
+                        override fun itemClick(name: String) {
                             exerciseList.also {
-                                it.add(Exercise(name, mutableListOf()))
+                                var selection: Exercise? = null
+                                it.forEach{ e ->
+                                    if (e.name == name) selection = e
+                                }
+                                Log.e("e:::", "$selection")
+                                if(selection == null) it.add(Exercise(name, mutableListOf()))
+                                else it.remove(selection)
                             }
-                            Log.e("List:", "$exerciseList")
                         }
                     })
                 }

@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.progressiveoverload.data.Exercise
 import com.example.progressiveoverload.databinding.ItemExerciseDetailBinding
 
-class ExerciseDetailAdapter(val context: Context, val list: List<String>) : RecyclerView.Adapter<ExerciseDetailAdapter.MyViewHolder>(){
+class ExerciseDetailAdapter(val context: Context, val list: List<String>, val eList: List<Exercise>) : RecyclerView.Adapter<ExerciseDetailAdapter.MyViewHolder>(){
     private lateinit var binding: ItemExerciseDetailBinding
     private var onClickListener: OnClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -17,7 +18,13 @@ class ExerciseDetailAdapter(val context: Context, val list: List<String>) : Recy
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.setName(list[position], onClickListener!!)
+        var s = false
+        Log.e("eList", "$eList")
+        eList?.onEach {
+            if(list[position] == it.name) s = true
+        }
+        Log.e("${list[position]}", "$s")
+        holder.setName(list[position], onClickListener!!, s)
     }
 
     override fun getItemCount(): Int = list.size
@@ -25,25 +32,20 @@ class ExerciseDetailAdapter(val context: Context, val list: List<String>) : Recy
         this.onClickListener = onClickListener
     }
     interface OnClickListener {
-        fun itemClick(name: String, isSelected: Boolean)
+        fun itemClick(name: String)
     }
 
     class MyViewHolder(private val binding: ItemExerciseDetailBinding) : RecyclerView.ViewHolder(binding.root) {
-        var selected = false
-        fun setName(name: String, oCl: OnClickListener) {
+        private var selected = false
+        fun setName(name: String, oCl: OnClickListener, _selected: Boolean) {
+            selected = _selected
+            isSelected()
             binding.apply {
                 tvExerciseName.text = name
-                if (selected) {
-                    ivSelected.visibility = View.VISIBLE
-                    selected = false
-                } else {
-                    ivSelected.visibility = View.GONE
-                    selected = true
-                }
                 cl.setOnClickListener {
                     isSelected()
                     Log.e("click","ed : $selected")
-                    oCl.itemClick(name, selected)
+                    oCl.itemClick(name)
                 }
             }
         }

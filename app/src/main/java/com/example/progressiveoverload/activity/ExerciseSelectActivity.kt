@@ -26,6 +26,8 @@ class ExerciseSelectActivity : AppCompatActivity() {
     private val selectResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             eList = (it.data!!.getBundleExtra("list"))!!.get("list") as List<Exercise>
+            Log.e("getList:", "$eList")
+            binding.rvSelectedExercise.adapter = SelectedItemAdapter(this@ExerciseSelectActivity, eList)
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +38,7 @@ class ExerciseSelectActivity : AppCompatActivity() {
 
         binding.apply {
             eList = (intent.getBundleExtra("list"))!!.get("list") as List<Exercise>
-            Log.e("List", "${eList.size}")
-            Log.e("List", "$eList")
-            rvSelectedExercise.adapter = SelectedItemAdapter(this@ExerciseSelectActivity, listOf())
+            rvSelectedExercise.adapter = SelectedItemAdapter(this@ExerciseSelectActivity, eList)
             rvSelectedExercise.layoutManager = LinearLayoutManager(this@ExerciseSelectActivity).apply {
                 orientation = LinearLayoutManager.HORIZONTAL
             }
