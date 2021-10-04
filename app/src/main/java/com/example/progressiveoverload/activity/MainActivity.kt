@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     companion object {
         var listExercise: List<Exercise> = listOf()
     }

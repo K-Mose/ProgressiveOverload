@@ -33,6 +33,7 @@ class TodayFragment(private val mainContext: Context) : Fragment() {
         if (it.resultCode == Activity.RESULT_OK) {
             Log.e("getList:","${(it.data!!.getBundleExtra("list"))!!.get("list") as MutableList<Exercise>}")
             eViewModel.setList((it.data!!.getBundleExtra("list"))!!.get("list") as MutableList<Exercise>)
+            Log.e("isEmpty","${eViewModel._exerciseList.value!!.isEmpty()}")
             setView()
         }
     }

@@ -1,22 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="@dimen/select_text_size"/>
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/select_text_size"
+        android:layout_marginVertical="@dimen/selected_item_margin_v"
+        tools:text = "운동이름"
+        />
 
-    <TextView
-        android:id="@+id/tv_sets"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="@dimen/basic_text_size" />
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="30dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="@dimen/divider_margin_left">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="@string/kg"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="@drawable/layout_border"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="@string/n"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="@drawable/layout_border"
+                />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_sets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/basic_text_size" />
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"

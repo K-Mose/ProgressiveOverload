@@ -80,4 +80,9 @@ class ExerciseSelectActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onBackPressed() {
+        setResult(RESULT_OK, intent.putExtra("list", bundleOf("list" to eList)))
+        finish()
+    }
 }

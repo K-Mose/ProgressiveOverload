@@ -7,6 +7,11 @@
     <string name="today_exercise">오늘의 운동</string>
     <string name="log">운동 일지</string>
     <string name="not_available">준비중인 기능입니다.</string>
+    <string name="user_info">유져 정보</string>
+    <string name="edit_exercise">운동 수정</string>
+    <string name="kg">kg</string>
+    <string name="n">n</string>
+
     <!-- 운동 선택 -->
     <string name="selected_exercise">선택된 운동</string>
     <!-- BACK -->

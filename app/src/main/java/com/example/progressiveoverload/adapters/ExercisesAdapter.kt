@@ -11,7 +11,7 @@ class ExercisesAdapter(private val context: Context, private val list: List<Exer
     private lateinit var binding: ItemTodayExercisesBinding
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         binding = ItemTodayExercisesBinding.inflate(LayoutInflater.from(context), parent, false)
-        return MyViewHolder(binding)
+        return MyViewHolder(binding, context)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -20,11 +20,13 @@ class ExercisesAdapter(private val context: Context, private val list: List<Exer
 
     override fun getItemCount(): Int = list.size
 
-    class MyViewHolder(val binding: ItemTodayExercisesBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MyViewHolder(val binding: ItemTodayExercisesBinding, val context: Context) : RecyclerView.ViewHolder(binding.root) {
         fun setItem(exercise: Exercise) {
             binding.apply {
                 tvName.text = exercise.name
-                tvSets.text = exercise.sets.toString()
+                rvSets.apply {
+                    adapter = SetsAdapter(context, exercise.sets)
+                }
             }
         }
     }
