@@ -27,5 +27,9 @@
     <dimen name="selected_remove_item">18dp</dimen>
 
     <!-- 운동선택 디테일 -->
+    <dimen name="dialog_text_size">18sp</dimen>
+    <dimen name="dialog_et_margin_top">10sp</dimen>
+    <dimen name="dialog_et_margin_h">15sp</dimen>
+    <dimen name="dialog_button_height">50dp</dimen>
 
 </resources>

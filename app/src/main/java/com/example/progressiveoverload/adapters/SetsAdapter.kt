@@ -16,13 +16,18 @@ class SetsAdapter(val context: Context, val list: List<Sets>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.setItem(list[position])
     }
 
     override fun getItemCount(): Int = list.size
 
-    inner class MyViewHolder(binding: ItemSetsBinding) : RecyclerView.ViewHolder(binding.root) {
-
+    inner class MyViewHolder(val binding: ItemSetsBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun setItem(sets: Sets) {
+            binding.apply {
+                tvKg.text = sets.kg.toString()
+                tvNumber.text = sets.n.toString()
+            }
+        }
     }
 
 }
